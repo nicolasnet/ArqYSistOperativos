@@ -1,0 +1,10 @@
+Comandos:
+dd -> copiar bytes a bytes, absolutamente todo, incluso bytes vacios, o archivos borrados. TMB es para borrado COMPLETO.
+dd if=/dev/zero of=salida.raw bs=1MB count=4 --> if(entrada, de donde saco info) of(salida, el nuevo archivo creado) 
+dd if=/dev/urandom of=/dev/sdb -> borrado COMPLETO del disco esclavo del 1er master, con el urandom le agregamos 0 y 1 random a todo el disco, es mas seguro, te asegura q sea irrecuperable la informacion
+mkfs.ext4 salida.raw   -->  formateamos ese archivo
+mount salida.raw /media --> montamos el archivo en ese directorio.
+
+dd if=/dev/zero of=mi_swap.raw bs=100MB count=14
+mkswap mi_swap.raw --> para darle formato de swap, tengo un archivo swap de 100mb
+
