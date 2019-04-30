@@ -8,3 +8,4 @@ mount salida.raw /media --> montamos el archivo en ese directorio.
 dd if=/dev/zero of=mi_swap.raw bs=100MB count=14
 mkswap mi_swap.raw --> para darle formato de swap, tengo un archivo swap de 100mb
 
+programa Dumpit para windows, genera un archivo de 4gb q es toda la memoria RAM
