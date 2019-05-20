@@ -1,0 +1,18 @@
+Permisos:
+
+r = leer
+w = escribir
+x = ejecutar
+
+
+
+
+Comandos:
+ls -ld /etc  -->> para conocer los permisos de un directorio
+file /bin/ls -->> metadata de un archivo
+chmod 740 archivo01.txt -->> el 1er numero es para el dueño del archivo el 2do para el grupo y el tercero para el resto, el valor q se le asigna es q tipo de permisos se le dan (421 es lo q vale RWX respectivamente)
+chmod 650 -R borrar -->> recursivamente se cambian todos los permisos del directorio (es muy arriesgado usarlo)
+chmod +x archivo01.txt -->> agrega permiso de ejecucion al dueño, grupo y otros
+chown alumno:nogroup borrar -->> cambio obligatorio de dueño (alumno) y opcional de grupo (no group)
+chgrp nogroup borrar  -->> cambio nombre de grupo
+
