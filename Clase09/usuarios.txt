@@ -1,0 +1,7 @@
+usuarurios:
+
+Comandos:
+
+more etc/passwd ---->> te muestran todos los usuarios
+more etc/group --->> te muestran todos los grupos
+more etc/shadow ---->> muestra las contraseñas de los usuarios si es que estas logeado como root
