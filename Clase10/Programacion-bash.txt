@@ -1,0 +1,75 @@
+Programacion Bash:
+nano prog01.sh (esto va en la terminal)
+	#!/bin/bash
+	echo "hola Mundo"
+#chmod +x prog01.sh (esto va en la terminal)
+
+env | more ---->> para mostras las variables de entorno
+echo ${PWD}   --->> para mostrar contenido de una variable
+echo ${PWD:1:5}  ---->> para mostrar los caracteres de 1 a 5 de la variable
+
+$PATCH = ${PATCH}: /bbb  ----->> agrego el directorio bbb a la variable patch
+
+echo -e '\033[1;31mHola'  ---->> para imprimir en color rojo
+
+
+nano prog02.sh
+	#!/bin/bash
+	echo -n "Introduzca su nombre: "
+	read NOMBRE
+
+	echo -e "Su nombre es: " $NOMBRE  (si ponemos echo -n, elimina el salto de linea, con el -e es para poner formatos como colores o que detecte el \n)
+
+
+otra forma de hacerlo:
+	#!/bin/bash
+	echo "Introduzca su nombre: "
+	read NOMBRE
+
+	printf "Su nombre es: %s\n" $NOMBRE
+
+
+	#!/bin/bash
+	ROJO='\033[0;31m'
+	NC='\033[0m'    (para restaurar el color)
+	if [ ${USER} == 'root']; then
+		echo "usuario Correcto: root"
+	elif [ ${USER} == 'juan']; then
+		echo "usuario Corerecto: juan"
+	else
+		echo -e "Usuario Incorrecto " ${ROJO}${USER}${NC}
+		exit 1
+
+
+
+
+
+
+
+	#!/bin/bash
+	VALOR=5
+	echo -n "Ingrese un valor [1...10]"
+	read NUMERO
+
+	if [ ${NUMERO} -eq ${VALOR} ]; then   (si son iguales)
+		echo "Excelente"
+	elif [ ${NUMERO} -lt ${VALOR} ]; then  
+		echo "numero es menor"
+	elif [ ${NUMERO} -gt ${VALOR} ]; then
+		echo "Mayor"
+	else
+		echo "NOOO"
+	fi
+
+
+
+	#!/bin/bash
+	echo -n "introduzca su nombre: "
+	read NOMBRE
+
+	if [ "$NOMBRE" == "PABLO" ]; then
+		echo "- Su nombre es: Pablo"
+		echo ""
+	else
+		echo "-Su NOMBRE es: " $NOMBRE
+	fi
