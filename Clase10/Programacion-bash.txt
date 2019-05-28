@@ -73,3 +73,29 @@ otra forma de hacerlo:
 	else
 		echo "-Su NOMBRE es: " $NOMBRE
 	fi
+
+
+
+
+	#!/bin/bash
+	for ARCHIVO in `cat /etc/passwd`; do
+		echo ${ARCHIVO}
+	done
+
+	
+
+
+	(se pasa un archivo al final, y cada linea se guarda en una variable LINEA, luego se busca la palabra "root" y el resultado se pasa a una variable)
+	#!/bin/bash
+	while read LINEA; do
+		echo ${LINEA} | grep -i 'root' >> juan
+	done < /etc/passwd
+
+
+	
+
+	#!/bin/bash
+	while read LINEA; do
+		USUARIO = `echo ${LINEA} | cut -d ':' -f1`
+		echo "- Nombre del usuario: ${USUARIO}
+	done < /etc/passwd
