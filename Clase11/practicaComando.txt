@@ -1,0 +1,49 @@
+Listar usuarios y contraseñas:
+
+#nano prog06.sh
+	#!/bin/bash
+	while read LINEA; do
+		USUARIO=`echo ${LINEA} | cut -d ':' -f1`
+		DESC=`echo ${LINEA} | cut -d ':' -f5`
+		echo ${USUARIO}"-"${DESC}
+	done < /tec/passwd
+
+
+
+Crear usuarios desde un archivo TXT con los datos:
+
+#!/bin/bash
+while read LINEA; do
+	USU=`echo ${LINEA} | cut -d '|' -f1`
+	DES=`echo ${LINEA} | cut -d '|' -f2`
+	SHE=`echo ${LINEA} | cut -d '|' -f3`
+	
+	echo ${USU}
+	useradd -m -s ${SHE} -c "${DES}" ${USU}
+done < usuarios.txt
+
+
+Se puede declarar como funcion y asi se llama:
+
+#!/bin/bash
+source ./fun01.sh   (archivo donde esta la funcion)
+
+usuario (nombre de la funcion)
+
+
+Asi creo el archivo con la funcion:
+#nano fun01.sh
+
+	usuario() {
+	while read LINEA; do
+		USU=`echo ${LINEA} | cut -d '|' -f1`
+		DES=`echo ${LINEA} | cut -d '|' -f2`
+		SHE=`echo ${LINEA} | cut -d '|' -f3`
+	
+		echo ${USU}
+		useradd -m -s ${SHE} -c "${DES}" ${USU}
+	done < usuarios.txt
+	}
+
+
+
