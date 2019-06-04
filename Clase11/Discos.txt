@@ -1,0 +1,18 @@
+DISCOS:
+
+fdisk -l /dev/sda (da informo del disco)
+
+fdisk /dev/sdb
+	p ---->>> con esta opcion nos da informacion.n
+	n    ---->>> con esta opcion creamos una particion.
+		p ---->>> primaria, hasta 4 se pueden
+			usamos varias opciones por default
+			en tamaño ponemos +10MB (especificamos q sea mayor a tanto para asegurar ese tamaño)
+		e----->>> para crear una extendida desde la cual se pueden crear mas que seran logicas
+	d ---->>> esta opcion para borrar una
+	w ---->>> con esta opcion guardamos las particiones hechas (sin esto no hay anda hecho)
+	q ---->>> no guardamos nada de lo hecho
+	t ---->>> cambiamos tipo de particion (83 e Linux por defecto, 82 linux swap)
+
+mkfs.ext4 /dev/sdb2    ---->>> para formatear la 2da particion
+mkswap /dev/sdb1       ---->>> para formatear la 1er particion (q antes le pusimos tipo 82)
