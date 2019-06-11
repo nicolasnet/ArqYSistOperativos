@@ -18,5 +18,22 @@ pvs --->>> trae las particiones formateadas como LVM
 vgcreate vg1 /dev/sdb1 /dev/sdc1  ---->>> creas un grupo que juntas las capacidades de los grupos
 vgs ---->>>> para ver los grupos creados
 
-vgremote vg1 /dev/sdb1  ---->>> para sacarlo del grupo
+vgremove vg1 /dev/sdb1  ---->>> para sacarlo del grupo
+
+vgextend vg2 /dev/sdb1  ---->>> para agregarlo a un vg ya creado
+
+lvcreate -l +100%FREE -n lvappa vg1  ---->>> creamos un volumen logico desde un grupo creado, -l para agregar espacio a utilizar en % (con -L le ponemos el espacio en cantidades)  -n "lvappa" es el nombre del volumen
+
+
+
+----- con lo siguiente formateamos los volumenes logicos, le damos formato.
+mkfs.ext4 /dev/vg1/lvappa
+mkfs.ext4 /dev/vg2/lvappb
+
+mkdir /aapa /appb ----->>> creamos directorios
+
+mount /dev/vg1/lvappa /appa ---->>> montamos los directorios en los volumenes logicos q creamos
+mount /dev/vg2/lvappb /appb
+
+df -h   --->>> ver el espacio de los discos en formato humano
 
