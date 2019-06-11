@@ -1,0 +1,22 @@
+1ro hacer particiones.
+fdisk /dev/sdb ------>>> aca le aclaramos que disco vamos a particionar.
+
+n ---->>> para crear particiones
+p ---->>> para ver informacion
+w ---->>> para guardar los cambios en las particiones
+d ---->>> para eliminar particion
+
+fdisk -l /dev/sdb   ------>>> es lo mismo que usar "p"
+
+
+LVM:
+cambiamos tipo de particion con "t" en el fdisk, eltipo particion 8e es linux LVM
+
+pvcreate /dev/sdb1 /dev/sdc1  ----->>> crea volumenes fisicos preparados para LVM, se pasan las particiones creadas que queres configurar como LVM
+pvs --->>> trae las particiones formateadas como LVM
+
+vgcreate vg1 /dev/sdb1 /dev/sdc1  ---->>> creas un grupo que juntas las capacidades de los grupos
+vgs ---->>>> para ver los grupos creados
+
+vgremote vg1 /dev/sdb1  ---->>> para sacarlo del grupo
+
